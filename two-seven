@@ -1,0 +1,8 @@
+package main
+import "fmt"
+func main(){
+    var x,y int
+    x=543
+    y=130
+    fmt.Print("the ",(x/130)*(y/130)," squares 130mm on sides")
+  }
