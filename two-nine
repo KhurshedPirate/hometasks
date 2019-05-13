@@ -1,0 +1,8 @@
+package main
+import "fmt"
+func main(){
+    var x,n int
+    fmt.Scan(&n)
+    x=n-(n/12)*12+1
+    fmt.Print("aa=",x)
+  }
