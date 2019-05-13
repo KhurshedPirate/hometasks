@@ -1,0 +1,7 @@
+package main
+import "fmt"
+func main(){
+    var x:=234 int
+    fmt.Scan(&x)
+    fmt.Print("the quantity of full weeks",x/7)
+  }
