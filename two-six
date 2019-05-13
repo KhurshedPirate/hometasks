@@ -1,0 +1,13 @@
+package main
+import "fmt"
+func main(){
+    var n,fh,fm,fs int
+    fmt.Print("Enter the seconds")
+    fmt.Scan(&n)
+    fh=n/3600
+    fmt.Println("the quantity of full hours=",fh)
+    fm=n/60
+    fmt.Println("the quantity of full minutes=",fm)
+    fs=n-fm*60
+    fmt.Println("the quantity of seconds after last minute=",fs)
+  }
