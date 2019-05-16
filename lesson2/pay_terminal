@@ -1,0 +1,95 @@
+package main
+import "fmt"
+import "time"
+func main(){
+      var checked_op,phone_num int
+      var sum float64
+      var operator string
+      fmt.Println("Choose your operator")
+      fmt.Println("1 - Beeline")
+      fmt.Println("2 - Babilon")
+      fmt.Println("3 - Megafon")
+      fmt.Println("4 - Tcell")
+      checked_op=op_checking()
+      operator=op_transl(&checked_op)
+      fmt.Println("Enter your phone number")
+      phone_num=phone_checking(&checked_op)
+      fmt.Println("Enter sum")
+      sum=sum_checking()
+      fmt.Println("------------------------------------------")
+      fmt.Println("Operator: ", operator)
+      fmt.Println("Number: ", phone_num)
+      fmt.Println("Sum: ",sum)
+      fmt.Println("Data",time.Now())
+      fmt.Println("Operation Status: Succesfull")
+      fmt.Println("------------------------------------------")
+  }
+//**********************************************************************
+func op_checking()  int {
+  var id int
+  fmt.Scan(&id)
+  if(id>4 || id<1){
+    fmt.Println("enter the correct number")
+    return op_checking()
+  }
+ return id
+  }
+  //*****************************************************
+  func op_transl(a *int) string{
+    var operator string
+    if(*a==1){
+      operator="Beeline"
+    }
+    if(*a==2){
+      operator="Babilon"
+    }
+    if(*a==3){
+      operator="Megafon"
+    }
+    if(*a==4){
+      operator="Tcell"
+    }
+    return operator
+  }
+//****************************************************************
+func phone_checking(a *int) int {
+  var phone int
+  fmt.Scan(&phone)
+  if(phone/1000000000==0 && phone/100000000!=0){
+    if(*a==1){
+      if(phone/1000000!=917 && phone/1000000!=919){
+        fmt.Println("Your number must begin by 917 or 919")
+        return phone_checking(&*a)
+      }
+    }else if(*a==2){
+      if(phone/1000000!=918){
+        fmt.Println("Your number must begin by 918")
+        return phone_checking(&*a)
+    }else if(*a==3){
+      if(phone/10000000!=90 && phone/10000000!=88){
+        fmt.Println("Your number must begin by 88 or 90")
+        return phone_checking(&*a)
+    }else if(*a==4){
+      fmt.Print("Tcell")
+      if(phone/10000000!=93 && phone/10000000!=92){
+        fmt.Println("Your number must begin by 93 or 92")
+        return phone_checking(&*a)
+    }
+  }
+
+}}}else{
+  fmt.Println("Please, enter right number")
+  return phone_checking(&*a)
+}
+return phone
+}
+//*********************************************
+func sum_checking() float64{
+  var sum float64
+  fmt.Scan(&sum)
+  if(sum<=0){
+    fmt.Print("Enter right sum")
+    return sum_checking()
+  }
+  return sum
+}
